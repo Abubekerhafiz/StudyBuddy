@@ -5,6 +5,7 @@ const dotenv = require("dotenv");
 const connectDB = require("./config/db");
 const userRoutes = require("./routes/userRoutes");
 const taskRoutes = require("./routes/taskRoutes");
+const studySessionRoutes = require("./routes/studySessionRoutes");
 
 dotenv.config();
 
@@ -23,7 +24,9 @@ app.get("/test", (req, res) => {
     res.send("TEST ROUTE WORKING");
 });
 app.use("/api/users", userRoutes);
+
 app.use("/api/tasks", taskRoutes);
+app.use("/api/study-sessions", studySessionRoutes);
 
 connectDB();
 
